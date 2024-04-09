@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .swiper-wrapper {
+            border: 0px solid red;
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper {
+            height: 500px !important;
+            border: 0px solid blue;
+            border-bottom: 1px solid blue !important;
+        }
+
+
+        .topslidercontent {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: 0px solid red;
+
+        }
+
+        .topscontent {
+            width: 50%;
+            transition: 0.5s;
+            transform: translateY(-50px);
+        }
+
+        .topsimg {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .topsimg img {
+            display: block;
+            width: 70%;
+            object-fit: cover;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .swiper-button-next {
+            color: black;
+        }
+
+        .swiper-button-prev {
+            color: black;
+        }
+
+        /* Add animation styles for the text */
+        /* Define animation keyframes */
+        /* Define animation keyframes */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animation to slide content */
+        .slide-content {
+            animation: slideIn 0.5s ease forwards;
+            animation-play-state: paused;
+            /* Pause the animation by default */
+        }
+
+        .swiper-slide-active .slide-content {
+            animation-play-state: running;
+            /* Start the animation when slide becomes active */
+        }
+
+
+        /* slider @media */
+        @media screen and (max-width:992px) {
+            .swiper {
+                height: 400px !important;
+                border: 0px solid blue;
+            }
+        }
+
+        @media screen and (max-width:768px) {
+            .swiper {
+                height: 300px !important;
+                border: 0px solid blue;
+            }
+        }
+
+        @media screen and (max-width:768px) {
+            .topslidercontent {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                border: 0px solid red;
+                flex-direction: column;
+            }
+        }
+
+        /* main */
+        .introbox {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid red;
+            text-align: center;
+        }
+
+        .quickfeatures {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        .featurebox {
+            width: 100px;
+            height: 100px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="topslidercontent">
+                    <div class="topscontent slide-content">
+                        <p>First slider</p>
+                        <p>First p</p>
+                    </div>
+                    <div class="topsimg">
+                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="topslidercontent">
+                    <div class="topscontent slide-content">
+                        <p>Second slider</p>
+                        <p>Second p</p>
+                    </div>
+                    <div class="topsimg">
+                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="topslidercontent">
+                    <div class="topscontent slide-content">
+                        <p>third slider</p>
+                        <p>third p</p>
+                    </div>
+                    <div class="topsimg">
+                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="topslidercontent">
+                    <div class="topscontent slide-content">
+                        <p>fourth slider</p>
+                        <p>fourth p</p>
+                    </div>
+                    <div class="topsimg">
+                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next" id="next"></div>
+        <div class="swiper-button-prev" id="prev"></div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiper" style="display: none;">
+        <div class="swiper-wrapper">
+        </div>
+    </div>
+
+   
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+        var swiper2 = new Swiper(".mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+            // autoplay: {
+            //     delay: 3000,
+            // },
+        });
+    </script>
+</body>
+
+</html>

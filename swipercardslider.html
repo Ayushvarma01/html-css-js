@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Items Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        .newsslider {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 350px;
+            border: 2px solid red;
+        }
+
+        .carousel {
+            width: 80%;
+            border: 2px solid red;
+        }
+
+        .carousel-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            border: 2px solid blue;
+        }
+        
+        .carousel-item img{
+            margin: auto;
+        }
+
+        .slick-prev,
+        .slick-next {
+            font-size: 30px;
+            line-height: 1;
+            position: absolute;
+            top: 50%;
+            
+            z-index: 1;
+            cursor: pointer;
+            color: black;
+        }
+        
+        .slick-prev {
+            left: -50px;
+        }
+        
+        .slick-prev:hover{
+            color: black;
+        }
+        
+        .slick-next {
+            right: -10px;
+        }
+        .slick-next:hover{
+           color: black;
+       }
+    </style>
+</head>
+
+<body>
+
+    <div class="newsslider">
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="https://via.placeholder.com/150" alt="">
+                <p>date</p>
+                <h4>Headline</h4>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <button>Read More</button>
+            </div>
+            <div class="carousel-item"><img src="https://via.placeholder.com/150" alt=""></div>
+            <div class="carousel-item"><img src="https://via.placeholder.com/150" alt=""></div>
+            <div class="carousel-item"><img src="https://via.placeholder.com/150" alt=""></div>
+            <div class="carousel-item"><img src="https://via.placeholder.com/150" alt=""></div>
+            <div class="carousel-item"><img src="https://via.placeholder.com/150" alt=""></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3, // Number of items to show at once
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                prevArrow: '<button type="button" class="slick-prev"><</button>',
+                nextArrow: '<button type="button" class="slick-next">></button>',
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
